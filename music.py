@@ -4,10 +4,7 @@ from sklearn.tree import DecisionTreeClassifier
 import pandas as pd
 import numpy as np
 
-
-# col1, col2 = st.columns[2,1]
 col1, col2 = st.columns([2,1])
-
 
 model = joblib.load("music-recommender.joblib")
 col1.image('img/icon1.png')
@@ -44,11 +41,7 @@ with col1.container():
 
     with col1.container():
         if button:
-        
-            # X= np.array([["age", "gender"]])
-            # X[:, 0] = age.transform(X[:, 0])
-            # X[:, 1] = gender.transform(X[:, 1])
-            # X = X.astype(float)
+
             predictions = model.predict([[age, gender]])
             col1.success(f"**Hello {name} we recommended  **{ predictions[0]}** music for you**")
             col1.write(f"[click here for your { predictions[0]} music collection](https://www.youtube.com/results?search_query={predictions[0]}+music)")
