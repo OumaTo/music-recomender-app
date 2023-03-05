@@ -45,6 +45,7 @@ with col1.container():
             predictions = model.predict([[age, gender]])
             col1.success(f"**Hello {name} we recommended  **{ predictions[0]}** music for you**")
             col1.write(f"[click here for your { predictions[0]} music collection](https://www.youtube.com/results?search_query={predictions[0]}+music)")
+            st.balloons()
 
 
 if side == "Author":
